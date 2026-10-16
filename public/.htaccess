@@ -1,0 +1,48 @@
+Options -Indexes +FollowSymLinks
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_authz_core.c>
+  Require all granted
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # ----------------------------------------------------------------------
+  # 1. Canonical Domain & SSL Enforcement (301 Permanent Redirects)
+  # Forces HTTPS and canonical non-www domain (coreunitysolutions.com).
+  # Any other host (www, mail., webmail., cpanel., or any subdomain)
+  # is automatically 301 redirected to https://coreunitysolutions.com
+  # ----------------------------------------------------------------------
+  # Rule A: Subdomain / WWW Catch-All (If host is NOT coreunitysolutions.com)
+  RewriteCond %{HTTP_HOST} !^coreunitysolutions\.com$ [NC]
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+  RewriteRule ^ https://coreunitysolutions.com%{REQUEST_URI} [R=301,L]
+
+  # Rule B: Force HTTP to HTTPS for coreunitysolutions.com
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+  RewriteCond %{HTTP:CF-Visitor} '"scheme":"http"'
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+  RewriteRule ^ https://coreunitysolutions.com%{REQUEST_URI} [R=301,L]
+
+  # ----------------------------------------------------------------------
+  # 2. Direct Static Files & XML Sitemap Serving
+  # ----------------------------------------------------------------------
+  RewriteRule ^sitemap.*\.xml$ - [L]
+
+  # If request matches existing file or folder, serve directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # ----------------------------------------------------------------------
+  # 3. Clean URL rewriting for static html export
+  # ----------------------------------------------------------------------
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>

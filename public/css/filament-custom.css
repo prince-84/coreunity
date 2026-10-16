@@ -1,0 +1,368 @@
+/* ====================================================================
+   CoreUnity CMS - Colorful & Modern UI Enhancements
+   ==================================================================== */
+
+/* Global Top Ambient Gradient Accent Bar */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 25%, #ec4899 50%, #f59e0b 75%, #10b981 100%);
+    z-index: 99999;
+    pointer-events: none;
+}
+
+/* ====================================================================
+   1. SIDEBAR - Colorful, Modern & Polished with Smart Scrollbar
+   ==================================================================== */
+
+aside.fi-sidebar {
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    border-right: 1px solid #e2e8f0 !important;
+    box-shadow: 3px 0 20px -3px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* SMART SLEEK SCROLLBAR FOR SIDEBAR & PANEL */
+.fi-sidebar,
+.fi-sidebar-nav,
+.fi-main-sidebar,
+aside.fi-sidebar,
+aside.fi-sidebar * {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(148, 163, 184, 0.35) transparent !important;
+    scrollbar-gutter: auto !important;
+}
+
+.fi-sidebar-nav {
+    scrollbar-gutter: auto !important;
+    padding-inline-end: 0.5rem !important;
+}
+
+/* WebKit (Chrome, Edge, Brave, Safari) Custom Thin Scrollbar */
+.fi-sidebar-nav::-webkit-scrollbar,
+.fi-sidebar::-webkit-scrollbar,
+.fi-main-sidebar::-webkit-scrollbar,
+aside.fi-sidebar::-webkit-scrollbar,
+aside.fi-sidebar *::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-track,
+.fi-sidebar::-webkit-scrollbar-track,
+.fi-main-sidebar::-webkit-scrollbar-track,
+aside.fi-sidebar::-webkit-scrollbar-track,
+aside.fi-sidebar *::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.fi-sidebar-nav::-webkit-scrollbar-thumb,
+.fi-sidebar::-webkit-scrollbar-thumb,
+.fi-main-sidebar::-webkit-scrollbar-thumb,
+aside.fi-sidebar::-webkit-scrollbar-thumb,
+aside.fi-sidebar *::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.35) !important;
+    border-radius: 9999px !important;
+    transition: background 0.2s ease !important;
+}
+
+.fi-sidebar-nav:hover::-webkit-scrollbar-thumb,
+aside.fi-sidebar:hover::-webkit-scrollbar-thumb,
+.fi-main-sidebar:hover::-webkit-scrollbar-thumb,
+.fi-sidebar-nav::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #6366f1 0%, #8b5cf6 100%) !important;
+}
+
+/* Remove chunky default Windows buttons/arrows from scrollbars */
+.fi-sidebar-nav::-webkit-scrollbar-button,
+.fi-sidebar::-webkit-scrollbar-button,
+.fi-main-sidebar::-webkit-scrollbar-button,
+aside.fi-sidebar::-webkit-scrollbar-button,
+aside.fi-sidebar *::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Global Page & Modal Smart Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.55);
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Sidebar Header / Brand */
+.fi-sidebar-header {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 1rem !important;
+}
+
+.fi-sidebar-header a:hover {
+    opacity: 0.95;
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* Navigation Group Titles */
+.fi-sidebar-group-label {
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #4f46e5 !important;
+    padding-left: 0.5rem !important;
+}
+
+/* Sidebar Navigation Items */
+.fi-sidebar-item-btn {
+    border-radius: 0.75rem !important;
+    margin: 2px 8px !important;
+    padding: 0.5rem 0.75rem !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+}
+
+/* Sidebar Item Hover */
+.fi-sidebar-item-btn:hover {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.06) 100%) !important;
+    color: #3730a3 !important;
+    transform: translateX(4px);
+}
+
+.fi-sidebar-item-btn:hover .fi-sidebar-item-icon {
+    color: #4f46e5 !important;
+    transform: scale(1.12);
+}
+
+/* Active Sidebar Item - Gradient & Glow */
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px -1px rgba(79, 70, 229, 0.42), 0 2px 6px -1px rgba(124, 58, 237, 0.3) !important;
+    font-weight: 600 !important;
+}
+
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-icon,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-label,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn span {
+    color: #ffffff !important;
+}
+
+/* Icons Style & Vibrant Accents */
+.fi-sidebar-item-icon {
+    transition: all 0.22s ease !important;
+    color: #64748b;
+}
+
+/* ====================================================================
+   2. TOPBAR - Sleek & Translucent
+   ==================================================================== */
+
+.fi-topbar {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 10px -2px rgba(15, 23, 42, 0.04) !important;
+}
+
+/* ====================================================================
+   3. CARDS, SECTIONS & WIDGETS
+   ==================================================================== */
+
+.fi-section,
+.fi-wi {
+    border-radius: 1rem !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 6px 18px -3px rgba(15, 23, 42, 0.04) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fi-wi:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -6px rgba(79, 70, 229, 0.09), 0 6px 12px -4px rgba(15, 23, 42, 0.03) !important;
+    border-color: #cbd5e1 !important;
+}
+
+.fi-section-header {
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding-bottom: 0.75rem !important;
+}
+
+.fi-section-header-title {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+}
+
+/* Stats Overview Widget Values */
+.fi-wi-stats-overview-stat-value {
+    color: #1e1b4b !important;
+    font-weight: 800 !important;
+}
+
+/* ====================================================================
+   4. BUTTONS & ACTIONS
+   ==================================================================== */
+
+/* Primary Button */
+.fi-btn.fi-color-primary:not(.fi-btn-outlined):not([class*="fi-btn-subtle"]) {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px -1px rgba(79, 70, 229, 0.38) !important;
+    border: none !important;
+    border-radius: 0.625rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn.fi-color-primary:not(.fi-btn-outlined):hover {
+    background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%) !important;
+    box-shadow: 0 6px 16px -1px rgba(79, 70, 229, 0.48) !important;
+    transform: translateY(-1px);
+}
+
+/* Danger Button */
+.fi-btn.fi-color-danger:not(.fi-btn-outlined) {
+    background: linear-gradient(135deg, #e11d48 0%, #f43f5e 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px -1px rgba(225, 29, 72, 0.35) !important;
+    border-radius: 0.625rem !important;
+}
+
+/* Success Button */
+.fi-btn.fi-color-success:not(.fi-btn-outlined) {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 3px 10px -1px rgba(16, 185, 129, 0.35) !important;
+    border-radius: 0.625rem !important;
+}
+
+/* Outlined Buttons */
+.fi-btn.fi-btn-outlined {
+    border-radius: 0.625rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-btn.fi-btn-outlined:hover {
+    transform: translateY(-1px);
+}
+
+/* ====================================================================
+   5. TABLES & DATA
+   ==================================================================== */
+
+.fi-ta {
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+}
+
+.fi-ta-header-cell {
+    background: #f8fafc !important;
+    color: #475569 !important;
+    font-size: 0.73rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+}
+
+.fi-ta-row {
+    transition: background-color 0.15s ease !important;
+}
+
+.fi-ta-row:hover {
+    background-color: rgba(99, 102, 241, 0.035) !important;
+}
+
+/* ====================================================================
+   6. BADGES & PILLS
+   ==================================================================== */
+
+.fi-badge {
+    border-radius: 9999px !important;
+    font-weight: 600 !important;
+    padding: 0.2rem 0.65rem !important;
+    font-size: 0.75rem !important;
+}
+
+.fi-badge.fi-color-primary {
+    background: rgba(99, 102, 241, 0.12) !important;
+    color: #4338ca !important;
+    border: 1px solid rgba(99, 102, 241, 0.2) !important;
+}
+
+.fi-badge.fi-color-success {
+    background: rgba(16, 185, 129, 0.12) !important;
+    color: #047857 !important;
+    border: 1px solid rgba(16, 185, 129, 0.25) !important;
+}
+
+.fi-badge.fi-color-danger {
+    background: rgba(239, 68, 68, 0.12) !important;
+    color: #b91c1c !important;
+    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+}
+
+.fi-badge.fi-color-warning {
+    background: rgba(245, 158, 11, 0.15) !important;
+    color: #b45309 !important;
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+}
+
+.fi-badge.fi-color-info {
+    background: rgba(14, 165, 233, 0.12) !important;
+    color: #0369a1 !important;
+    border: 1px solid rgba(14, 165, 233, 0.25) !important;
+}
+
+/* ====================================================================
+   7. FORM INPUTS & FOCUS RINGS
+   ==================================================================== */
+
+.fi-input-wrp:focus-within {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2) !important;
+    border-color: #6366f1 !important;
+}
+
+/* ====================================================================
+   8. LOGIN PAGE
+   ==================================================================== */
+
+.fi-simple-layout {
+    background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.12), transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.06), transparent 50%),
+                #f8fafc !important;
+}
+
+.fi-simple-main-ctn > .fi-section,
+.fi-simple-main-ctn > .fi-card {
+    background: #ffffff !important;
+    border-radius: 1.25rem !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    box-shadow: 0 20px 45px -12px rgba(79, 70, 229, 0.15), 0 4px 16px -2px rgba(15, 23, 42, 0.05) !important;
+}
