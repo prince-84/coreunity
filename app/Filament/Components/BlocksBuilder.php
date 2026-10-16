@@ -11,6 +11,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Support\Enums\Alignment;
 
 class BlocksBuilder
 {
@@ -19,6 +20,7 @@ class BlocksBuilder
         return Builder::make($name)
             ->label('Drag-and-Drop Dynamic Block Builder')
             ->addActionLabel('Add New Page Block Component')
+            ->addActionAlignment(Alignment::Start)
             ->collapsible()
             ->collapsed()
             ->cloneable()
@@ -149,7 +151,7 @@ class BlocksBuilder
 
                 // 3. Work Showcase / Case Studies Grid Block
                 Block::make('our_work')
-                    ->label('Work Showcase / Case Studies Grid & Featured Slider')
+                    ->label('Our Work Showcase')
                     ->icon('heroicon-o-briefcase')
                     ->schema([
                         Toggle::make('use_global')
@@ -275,7 +277,7 @@ class BlocksBuilder
 
                 // 5. Our Clients & Client Reviews Block
                 Block::make('our_clients')
-                    ->label('Our Clients Logos & 5-Star Reviews Marquee')
+                    ->label('Our Clients Logos')
                     ->icon('heroicon-o-building-office-2')
                     ->schema([
                         Toggle::make('use_global')
@@ -328,7 +330,7 @@ class BlocksBuilder
 
                 // 6. Team Members Grid Block
                 Block::make('team')
-                    ->label('Team Members & Leadership Grid')
+                    ->label('Team Members')
                     ->icon('heroicon-o-user-group')
                     ->schema([
                         Toggle::make('use_global')
@@ -382,7 +384,7 @@ class BlocksBuilder
 
                 // 7. Testimonials & Client Reviews Block
                 Block::make('testimonials')
-                    ->label('Testimonials & Reviews Showcase')
+                    ->label('Testimonials')
                     ->icon('heroicon-o-chat-bubble-bottom-center-text')
                     ->schema([
                         Toggle::make('use_global')
@@ -437,6 +439,58 @@ class BlocksBuilder
                             ->itemLabel(fn (array $state): ?string => $state['name'] ?? 'Testimonial')
                             ->visible(fn ($get) => !$get('use_global'))
                             ->columnSpanFull(),
+                    ])->columns(2),
+
+                // 7.1 Client Reviews (Marquee)
+                Block::make('client_reviews')
+                    ->label('Client Reviews (Marquee)')
+                    ->icon('heroicon-o-star')
+                    ->schema([
+                        Toggle::make('use_global')
+                            ->label('Use Synchronized Global Client Reviews Section')
+                            ->helperText('Embeds the synchronized infinite marquee of client reviews.')
+                            ->default(true)
+                            ->reactive()
+                            ->columnSpanFull(),
+                        TextInput::make('badge')
+                            ->label('Section Badge')
+                            ->default('Client Testimonials')
+                            ->placeholder('Client Testimonials')
+                            ->visible(fn ($get) => !$get('use_global')),
+                        TextInput::make('title')
+                            ->label('Section Heading')
+                            ->default('Loved by your best customers')
+                            ->placeholder('Loved by your best customers')
+                            ->visible(fn ($get) => !$get('use_global')),
+                        Textarea::make('description')
+                            ->label('Section Description')
+                            ->rows(2)
+                            ->default("We're obsessed with delivering outstanding customer experiences that are a reflection of your brand.")
+                            ->visible(fn ($get) => !$get('use_global'))
+                            ->columnSpanFull(),
+                    ])->columns(2),
+
+                // 7.2 Blog Showcase Section
+                Block::make('blog_showcase')
+                    ->label('Blog Showcase Section')
+                    ->icon('heroicon-o-newspaper')
+                    ->schema([
+                        Toggle::make('use_global')
+                            ->label('Use Synchronized Global Blog Showcase Section')
+                            ->helperText('Embeds latest published articles and insights.')
+                            ->default(true)
+                            ->reactive()
+                            ->columnSpanFull(),
+                        TextInput::make('badge')
+                            ->label('Section Badge')
+                            ->default('Our Blogs')
+                            ->placeholder('Our Blogs')
+                            ->visible(fn ($get) => !$get('use_global')),
+                        TextInput::make('title')
+                            ->label('Section Heading')
+                            ->default('Latest News, Insights & Updates')
+                            ->placeholder('Latest News, Insights & Updates')
+                            ->visible(fn ($get) => !$get('use_global')),
                     ])->columns(2),
 
                 // 8. Accordion / FAQ Block

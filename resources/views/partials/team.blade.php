@@ -25,8 +25,8 @@
             @foreach($teamMembers as $m)
                 <div class="bg-white rounded-2xl border border-gray-200 shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-4 flex flex-col group hover:-translate-y-1 transition-transform duration-300">
                     <div class="relative w-full mb-8">
-                        <div class="w-full rounded-xl overflow-hidden relative bg-[#1a1a1a]">
-                            <img src="{{ $m['image_url'] ?? (!empty($m['image']) ? asset($m['image']) : asset('farazbhai_image.png')) }}" alt="{{ $m['name'] ?? 'Team Member' }}" class="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500" />
+                        <div class="w-full rounded-xl overflow-hidden relative bg-[#1a1a1a] aspect-[3/4]">
+                            <img src="{{ $m['image_url'] ?? (!empty($m['image']) ? asset($m['image']) : asset('farazbhai_image.png')) }}" alt="{{ $m['name'] ?? 'Team Member' }}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                         </div>
                         <div class="absolute -bottom-5 left-4 w-10 h-10 bg-white rounded-full p-[2px] shadow-md z-10 flex items-center justify-center">
                             <div class="relative w-full h-full bg-red-600 rounded-full flex items-center justify-center overflow-hidden">

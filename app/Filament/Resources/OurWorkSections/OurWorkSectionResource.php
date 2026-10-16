@@ -20,13 +20,13 @@ class OurWorkSectionResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Home Page';
+    protected static string|UnitEnum|null $navigationGroup = 'Global Section';
 
     protected static ?string $navigationLabel = 'Our Work Showcase';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Briefcase;
 
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 1;
 
     protected static ?string $modelLabel = 'Our Work Section';
 

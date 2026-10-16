@@ -114,14 +114,14 @@ aside.fi-sidebar *::-webkit-scrollbar-button {
 
 /* Sidebar Header / Brand */
 .fi-sidebar-header {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%) !important;
+    background: #ffffff !important;
     border-bottom: 1px solid #e2e8f0 !important;
-    padding: 1rem !important;
+    padding: 0.875rem 1rem !important;
 }
 
 .fi-sidebar-header a:hover {
     opacity: 0.95;
-    transform: scale(1.02);
+    transform: scale(1.01);
     transition: transform 0.2s ease;
 }
 
@@ -178,15 +178,125 @@ aside.fi-sidebar *::-webkit-scrollbar-button {
 }
 
 /* ====================================================================
-   2. TOPBAR - Sleek & Translucent
+   2. TOPBAR - Core Unity Smart & Professional White Brand Navbar
    ==================================================================== */
 
 .fi-topbar {
-    background: rgba(255, 255, 255, 0.92) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    background: #ffffff !important;
     border-bottom: 1px solid #e2e8f0 !important;
-    box-shadow: 0 1px 10px -2px rgba(15, 23, 42, 0.04) !important;
+    box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04) !important;
+    min-height: 4.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-inline: 1.25rem !important;
+    position: relative;
+    z-index: 20;
+}
+
+/* Topbar Start Container - Always Flex Across All Screen Sizes */
+.fi-topbar-start {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.875rem !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    margin-inline-end: 0.75rem !important;
+}
+
+.fi-topbar-start > a,
+.fi-topbar-start .fi-logo {
+    display: flex !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    text-decoration: none !important;
+}
+
+/* Sidebar Toggle Buttons on White Navbar */
+.fi-topbar-open-sidebar-btn,
+.fi-topbar-close-sidebar-btn,
+.fi-topbar-open-collapse-sidebar-btn,
+.fi-topbar-close-collapse-sidebar-btn {
+    color: #475569 !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 0.5rem !important;
+    padding: 0.35rem !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.fi-topbar-open-sidebar-btn:hover,
+.fi-topbar-close-sidebar-btn:hover,
+.fi-topbar-open-collapse-sidebar-btn:hover,
+.fi-topbar-close-collapse-sidebar-btn:hover {
+    color: #0f172a !important;
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    transform: scale(1.03);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Remove Global Search Completely */
+.fi-global-search,
+.fi-topbar-end .fi-global-search-field-ctn,
+[class*="fi-global-search"],
+div:has(> .fi-global-search) {
+    display: none !important;
+}
+
+/* Topbar End & User Profile */
+.fi-topbar-end {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin-inline-start: auto !important;
+    shrink: 0 !important;
+}
+
+.fi-topbar-end button,
+.fi-topbar-end .fi-dropdown-trigger {
+    color: #334155 !important;
+}
+
+.fi-topbar-end .fi-avatar,
+.fi-topbar-end [class*="avatar"] {
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1), 0 0 0 1px #e2e8f0 !important;
+    border-radius: 9999px !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-topbar-end .fi-avatar:hover,
+.fi-topbar-end [class*="avatar"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2), 0 0 0 1px #4f46e5 !important;
+}
+
+/* Mobile & Tablet Responsive Optimizations */
+@media (max-width: 640px) {
+    .fi-topbar {
+        padding-inline: 0.65rem !important;
+        min-height: 3.5rem !important;
+    }
+
+    .fi-topbar-start {
+        gap: 0.5rem !important;
+        margin-inline-end: 0.25rem !important;
+    }
+
+    .fi-topbar-start img {
+        height: 1.75rem !important;
+    }
+
+    .fi-topbar-start .truncate {
+        max-width: 170px !important;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .fi-topbar-start .truncate {
+        max-width: 280px !important;
+    }
 }
 
 /* ====================================================================
@@ -365,4 +475,37 @@ aside.fi-sidebar *::-webkit-scrollbar-button {
     border-radius: 1.25rem !important;
     border: 1px solid rgba(226, 232, 240, 0.9) !important;
     box-shadow: 0 20px 45px -12px rgba(79, 70, 229, 0.15), 0 4px 16px -2px rgba(15, 23, 42, 0.05) !important;
+}
+
+/* ====================================================================
+   9. BUILDER BLOCK PICKER THUMBNAILS & GROUPED DROPDOWN
+   ==================================================================== */
+
+.fi-fo-builder-block-picker .fi-dropdown-list-item-image {
+    width: 3.5rem !important;
+    height: 2.2rem !important;
+    border-radius: 0.375rem !important;
+    background-size: cover !important;
+    background-position: center !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    flex-shrink: 0 !important;
+    transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+.fi-fo-builder-block-picker .fi-dropdown-list-item:hover .fi-dropdown-list-item-image {
+    transform: scale(1.04) !important;
+    border-color: #cc2936 !important;
+    box-shadow: 0 2px 6px rgba(204, 41, 54, 0.2) !important;
+}
+
+.fi-fo-builder-block-picker .fi-dropdown-panel {
+    min-width: 22rem !important;
+    max-width: 28rem !important;
+    max-height: min(26rem, calc(100vh - 12rem)) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain !important;
+    border-radius: 0.875rem !important;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+    z-index: 50 !important;
 }

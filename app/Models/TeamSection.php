@@ -38,6 +38,16 @@ class TeamSection extends Model
         if (file_exists(public_path($path))) {
             return asset($path);
         }
+        if (file_exists(public_path('storage/' . $path))) {
+            return asset('storage/' . $path);
+        }
+        $filename = basename($path);
+        if (file_exists(public_path('storage/team/' . $filename))) {
+            return asset('storage/team/' . $filename);
+        }
+        if (file_exists(public_path($filename))) {
+            return asset($filename);
+        }
         return asset('storage/' . $path);
     }
 

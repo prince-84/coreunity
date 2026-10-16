@@ -46,12 +46,7 @@ class PageResource extends Resource
     public static function getRelations(): array
     {
         return [
-            \App\Filament\Resources\Pages\RelationManagers\HomePageSectionsRelationManager::class,
-            \App\Filament\Resources\Pages\RelationManagers\AboutPageSectionsRelationManager::class,
-            \App\Filament\Resources\Pages\RelationManagers\ServicesPageSectionsRelationManager::class,
-            \App\Filament\Resources\Pages\RelationManagers\CaseStudyPageSectionsRelationManager::class,
-            \App\Filament\Resources\Pages\RelationManagers\BlogPageSectionsRelationManager::class,
-            \App\Filament\Resources\Pages\RelationManagers\ContactPageSectionsRelationManager::class,
+            // Bottom list removed as sections are now edited directly in top tabs
         ];
     }
 

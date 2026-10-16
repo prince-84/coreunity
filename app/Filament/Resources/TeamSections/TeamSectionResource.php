@@ -20,7 +20,7 @@ class TeamSectionResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static string|UnitEnum|null $navigationGroup = 'About Page';
+    protected static string|UnitEnum|null $navigationGroup = 'Global Section';
 
     protected static ?string $navigationLabel = 'Team Members';
 

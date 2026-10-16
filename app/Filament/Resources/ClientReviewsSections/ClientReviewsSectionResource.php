@@ -20,13 +20,13 @@ class ClientReviewsSectionResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Home Page';
+    protected static string|UnitEnum|null $navigationGroup = 'Global Section';
 
     protected static ?string $navigationLabel = 'Client Reviews (Marquee)';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Star;
 
-    protected static ?int $navigationSort = 7;
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $modelLabel = 'Client Reviews Section';
 

@@ -15,7 +15,7 @@ class GlobalSeoSettingsTable
             ->columns([
                 TextColumn::make('id')->sortable(),
                 IconColumn::make('site_indexing_enabled')
-                    ->label('Indexing Status (Robots)')
+                    ->label('Global SEO Indexing')
                     ->boolean()
                     ->trueIcon('heroicon-o-check-circle')
                     ->falseIcon('heroicon-o-no-symbol')

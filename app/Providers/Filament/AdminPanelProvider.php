@@ -32,8 +32,10 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->favicon(asset('Core Unity Logo-05.svg'))
-            ->brandLogo(asset('Core Unity Logo-05.svg'))
-            ->brandName('CoreUnity CMS')
+            ->brandLogo(fn () => view('filament.components.brand-header'))
+            ->brandLogoHeight('2.75rem')
+            ->brandName('Content Management System Core Unity Solutions')
+            ->globalSearch(false)
             ->font('Plus Jakarta Sans')
             ->darkMode(false)
             ->sidebarWidth('16rem')
@@ -53,9 +55,7 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 NavigationGroup::make('Content')
                     ->collapsible(),
-                NavigationGroup::make('Home Page')
-                    ->collapsible(),
-                NavigationGroup::make('About Page')
+                NavigationGroup::make('Global Section')
                     ->collapsible(),
                 NavigationGroup::make('Services Page')
                     ->collapsible(),

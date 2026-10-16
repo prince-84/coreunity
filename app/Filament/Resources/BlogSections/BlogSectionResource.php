@@ -20,13 +20,13 @@ class BlogSectionResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Home Page';
+    protected static string|UnitEnum|null $navigationGroup = 'Global Section';
 
     protected static ?string $navigationLabel = 'Blog Showcase Section';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Newspaper;
 
-    protected static ?int $navigationSort = 8;
+    protected static ?int $navigationSort = 4;
 
     protected static ?string $modelLabel = 'Blog Section';
 

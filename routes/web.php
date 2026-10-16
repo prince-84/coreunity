@@ -24,5 +24,20 @@ Route::get('/industries/{industry}', [PageController::class, 'showIndustry'])->n
 Route::get('/blogs/{slug}', [PageController::class, 'showBlog'])->name('blogs.show');
 Route::get('/blog/{slug}', [PageController::class, 'showBlog'])->name('blog.show');
 
+// Dynamic robots.txt Route
+Route::get('/robots.txt', function () {
+    $isIndexingEnabled = \App\Models\GlobalSeoSetting::isIndexingEnabled();
+
+    if ($isIndexingEnabled) {
+        $sitemapUrl = url('/sitemap.xml');
+        $content = "User-agent: *\nAllow: /\n\nSitemap: {$sitemapUrl}\n";
+    } else {
+        $content = "User-agent: *\nDisallow: /\n";
+    }
+
+    return response($content, 200)
+        ->header('Content-Type', 'text/plain; charset=UTF-8');
+})->name('robots');
+
 // Dynamic Catch-All Route for CMS Pages
 Route::get('/{slug}', [PageController::class, 'show'])->name('page.show');

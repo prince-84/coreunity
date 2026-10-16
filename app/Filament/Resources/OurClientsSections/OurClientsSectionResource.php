@@ -20,13 +20,13 @@ class OurClientsSectionResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Home Page';
+    protected static string|UnitEnum|null $navigationGroup = 'Global Section';
 
     protected static ?string $navigationLabel = 'Our Clients Logos';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingOffice2;
 
-    protected static ?int $navigationSort = 6;
+    protected static ?int $navigationSort = 2;
 
     protected static ?string $modelLabel = 'Our Clients Section';
 

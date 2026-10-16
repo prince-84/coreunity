@@ -8,4 +8,10 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePage extends CreateRecord
 {
     protected static string $resource = PageResource::class;
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['hero_headline'] = $data['hero_headline'] ?? ($data['title'] ?? 'Welcome');
+        return $data;
+    }
 }

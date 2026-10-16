@@ -19,6 +19,32 @@ class GlobalSeoSetting extends Model
         'site_indexing_enabled' => 'boolean',
     ];
 
+    protected static function booted(): void
+    {
+        static::saved(function (self $model) {
+            static::syncRobotsFile($model->site_indexing_enabled);
+        });
+    }
+
+    /**
+     * Synchronize public/robots.txt file to match current indexing status.
+     */
+    public static function syncRobotsFile(?bool $enabled = null): void
+    {
+        try {
+            $isIndexingEnabled = $enabled ?? static::isIndexingEnabled();
+            if ($isIndexingEnabled) {
+                $sitemapUrl = url('/sitemap.xml');
+                $content = "User-agent: *\nAllow: /\n\nSitemap: {$sitemapUrl}\n";
+            } else {
+                $content = "User-agent: *\nDisallow: /\n";
+            }
+            @file_put_contents(public_path('robots.txt'), $content);
+        } catch (\Throwable $e) {
+            // Silently ignore filesystem permissions if public directory is read-only
+        }
+    }
+
     /**
      * Check if search engine indexing is globally enabled.
      * Guaranteed to return false by default on new deployments or if setting is not found.

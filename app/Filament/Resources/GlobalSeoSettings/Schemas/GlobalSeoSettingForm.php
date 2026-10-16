@@ -27,9 +27,9 @@ class GlobalSeoSettingForm
                                     ->description('Security & SEO Control: Choose whether search engines (Google, Bing, Yahoo, etc.) are allowed to index this website.')
                                     ->schema([
                                         Toggle::make('site_indexing_enabled')
-                                            ->label('Search Engine Visibility / Global Indexing')
+                                            ->label('Global SEO Indexing')
                                             ->default(false)
-                                            ->helperText('OFF (Default - Safe Mode): Renders <meta name="robots" content="noindex, nofollow"> to block search engines. | ON (Production): Renders <meta name="robots" content="index, follow"> allowing search engines to index your pages.')
+                                            ->helperText('OFF (Default - Safe Mode): Renders <meta name="robots" content="noindex, nofollow"> and blocks search engines via robots.txt (Disallow: /). | ON (Production): Renders <meta name="robots" content="index, follow"> and provides standard robots.txt with sitemap reference.')
                                             ->onColor('success')
                                             ->offColor('danger')
                                             ->columnSpanFull(),
